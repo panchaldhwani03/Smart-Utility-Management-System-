@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Service Booking</title>
+
+    <!-- Global CSS -->
+    <link rel="stylesheet" href="css/services.css">
+
+</head>
+<body>
+
+    <!-- Header -->
+    <header class="navbar">
+        <h1>Smart Utility Management</h1>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="user-management.html">Register</a></li>
+                <li><a href="service-booking.html">Services</a></li>
+                <li><a href="feedback.html">Feedback</a></li>
+                
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Main Content -->
+    <main>
+        <h2>Service Booking</h2>
+
+        <!-- Booking Form -->
+        <form id="bookingForm">
+            <!-- Service Selection -->
+            <div class="form-group">
+                <label for="service">Select a Service</label>
+                <div style="display: flex; align-items: center; justify-content: center;">
+                    <select id="service" name="service" required style="flex: 1; margin-right: 10px; height: 50px;">
+                        <option value="" disabled selected>Choose Service</option>
+                        <option value="maintenance">Maintenance</option>
+                        <option value="installation">Installation</option>
+                        <option value="cleaning">Cleaning</option>
+                        <option value="repair">Repair</option>
+                    </select>
+                    <span class="tooltip">Choose a service you need help with.</span>
+                </div>
+            </div>
+        
+            <!-- Date Selection -->
+            <div class="form-group">
+                <label for="date">Select a Date</label>
+                <div style="display: flex; align-items: center; justify-content: center;">
+                    <input type="date" id="date" name="date" required style="flex: 1; height: 50px; padding: 10px;">
+                    <span class="tooltip">Pick the date for your service appointment.</span>
+                </div>
+            </div>
+        
+            <!-- Location Section -->
+            <div class="form-group">
+                <label for="location">Current Location</label>
+                <input type="text" id="location" name="location" placeholder="Enter your city or area" required style="height: 50px;">
+            </div>
+            <div class="form-group">
+                <label for="address">Full Address</label>
+                <textarea id="address" name="address" placeholder="Enter your full address" required style="width: 100%; padding: 10px; border-radius: 5px; height: 80px;"></textarea>
+            </div>
+        
+            <!-- Payment Section -->
+            <div class="form-group">
+                <label for="payment-method">Payment Method</label>
+                <select id="payment-method" name="payment-method" required style="height: 50px;">
+                    <option value="" disabled selected>Choose Payment Method</option>
+                    <option value="credit-card">Credit Card</option>
+                    <option value="debit-card">Debit Card</option>
+                    <option value="upi">UPI</option>
+                    <option value="net-banking">Net Banking</option>
+                </select>
+            </div>
+            <div class="form-group" id="payment-details-group" style="display: none;">
+                <label for="payment-details">Payment Details</label>
+                <input type="text" id="payment-details" name="payment-details" placeholder="Enter card/UPI details" style="height: 50px;">
+            </div>
+        
+            <!-- Submit Button -->
+            <button type="submit" class="btn">Book Service & Pay</button>
+        </form>
+        
+
+
+        <!-- Success Message -->
+        <div id="successMessage" class="success-message" style="display: none;">
+            <p>Your service has been successfully booked!</p>
+        </div>
+    </main>
+
+    <script>
+        // Simple form validation and success message
+        document.getElementById('bookingForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+
+            // Assuming form validation is passed
+            document.getElementById('successMessage').style.display = 'block';
+
+            // Hide success message after 3 seconds
+            setTimeout(function() {
+                document.getElementById('successMessage').style.display = 'none';
+            }, 3000);
+        });
+    </script>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <!-- First Row: Company Info, Follow Us, Useful Links, Customer Support -->
+            <div class="footer-row">
+                <div class="footer-column">
+                    <h5>Company</h5>
+                    <ul>
+                        <li><a href="#">About Us</a></li>
+                        <li><a href="#">Careers</a></li>
+                        <li><a href="#">Press</a></li>
+                        <li><a href="#">Blog</a></li>
+                    </ul>
+                </div>
+        
+                <div class="footer-column">
+                    <h5>Follow Us</h5>
+                    <ul>
+                        <li><a href="#">Facebook</a></li>
+                        <li><a href="#">Twitter</a></li>
+                        <li><a href="#">Instagram</a></li>
+                        <li><a href="#">LinkedIn</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-column">
+                    <h5>Useful Links</h5>
+                    <ul>
+                        <li><a href="#">Privacy Policy</a></li>
+                        <li><a href="#">Terms of Service</a></li>
+                        <li><a href="#">FAQs</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-column">
+                    <h5>Customer Support</h5>
+                    <ul>
+                        <li><a href="#">Help Center</a></li>
+                        <li><a href="#">Live Chat</a></li>
+                        <li><a href="#">Contact Us</a></li>
+                    </ul>
+                </div>
+            </div>
+        
+            <!-- Second Row: Newsletter Signup -->
+            <div class="footer-row">
+                <div class="footer-column">
+                    <p>&copy; 2024 Your Company. All Rights Reserved.</p>
+                </div>
+        
+                <div class="footer-column">
+                    <form class="newsletter-form">
+                        <input type="email" placeholder="Enter your email" class="newsletter-input">
+                        <button type="submit" class="subscribe-btn">Subscribe</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
